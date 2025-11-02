@@ -1,7 +1,6 @@
 import Hero from './components/Hero';
 import TrendingNow from './components/TrendingNow';
 import './App.css';
-import usePopularMovies from './lib/usePopularMovies';
 
 import useInfiniteMovies from './lib/useInfiniteMovies';
 
