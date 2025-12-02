@@ -34,5 +34,11 @@ export const Route = createFileRoute('/watch/$movieId')({
 
 function RouteComponent() {
   const movieDetails = Route.useLoaderData() as Movie;
-  return <VideoPlayer movie={movieDetails} />;
+  return (
+    <div className="px-4 text-white">
+      <h1 className="py-2 text-2xl">{movieDetails.title}</h1>
+      <p className="mb-4">{movieDetails.overview}</p>
+      <VideoPlayer movie={movieDetails} />;
+    </div>
+  );
 }

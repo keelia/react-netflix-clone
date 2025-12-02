@@ -35,7 +35,7 @@ function App() {
   return (
     <main>
       <Hero />
-      <div className="container mx-auto mt-6 max-w-6xl px-6">
+      <div className="mt-6 px-6">
         <TrendingNow
           movies={movies}
           hasMore={hasNextPage}

@@ -16,7 +16,7 @@ const MovieList = ({
   usehPRorizontalScroll(containerRef);
   return (
     <ul
-      className="flex overflow-x-scroll space-x-4 px-4 relative 
+      className="flex overflow-x-scroll space-x-4 px-16 relative 
       no-scrollbar"
       aria-label="Movie List"
       ref={containerRef}
