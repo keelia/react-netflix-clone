@@ -2,7 +2,7 @@ import { Card } from '@/components/ui/card';
 import type { MovieCardProps } from '@/types';
 import { Badge } from '@/components/ui/badge';
 import { useNavigate } from '@tanstack/react-router';
-import { useState } from 'react';
+import { useState, Activity } from 'react';
 import VideoPlayer from './VideoPlayer';
 const TMDB_IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -18,14 +18,12 @@ const MovieCard = ({ movie, order }: MovieCardProps) => {
     setIsHovered(false);
   };
   const onClick = () => {
-    console.log('MovieCard clicked:', movie);
     navigate({
       to: '/watch/$movieId',
       params: { movieId: String(movie?.id) },
     });
   };
 
-  console.log('Rendering MovieCard for movie:', isHovered, order, movie);
   return (
     <div className="relative h-[9.8em] w-[7em]">
       {movie && (
@@ -39,7 +37,7 @@ const MovieCard = ({ movie, order }: MovieCardProps) => {
           onMouseLeave={onMouseLeave}
           onClick={onClick}
         >
-          {isHovered && (
+          <Activity mode={isHovered ? 'visible' : 'hidden'}>
             <div
               className="absolute inset-0 flex items-center justify-center z-50 shadow-2xl w-[200%] h-[200%] 
               top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -47,7 +45,7 @@ const MovieCard = ({ movie, order }: MovieCardProps) => {
             >
               <VideoPlayer movie={movie} />
             </div>
-          )}
+          </Activity>
           <img
             loading="lazy"
             src={

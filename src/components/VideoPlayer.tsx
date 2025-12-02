@@ -1,14 +1,25 @@
 import type { Movie } from '@/types';
+import { useLayoutEffect, useRef } from 'react';
 
 type VideoPlayerProps = {
   movie: Movie;
 };
 
 const VideoPlayer = ({ movie }: VideoPlayerProps) => {
+  const ref = useRef<HTMLVideoElement>(null);
+  useLayoutEffect(() => {
+    const videoRef = ref.current;
+    return () => {
+      if (videoRef) {
+        videoRef.pause();
+      }
+    };
+  }, []);
   return (
     <video
+      ref={ref}
       controls
-      autoPlay
+      autoPlay={false}
       className="w-full max-h-[80vh] border border-amber-100 rounded-md bg-black"
       poster={
         movie.backdrop_path
