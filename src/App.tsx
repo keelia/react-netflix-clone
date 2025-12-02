@@ -33,7 +33,7 @@ function App() {
     );
   }
   return (
-    <main className="h-[calc(100vh-48px)]">
+    <main>
       <Hero />
       <div className="container mx-auto mt-6 max-w-6xl px-6">
         <TrendingNow
@@ -43,12 +43,6 @@ function App() {
           loadMore={fetchNextPage}
         />
       </div>
-      <TrendingNow
-        movies={movies}
-        hasMore={hasNextPage}
-        isLoadingMore={isFetchingNextPage}
-        loadMore={fetchNextPage}
-      />
     </main>
   );
 }

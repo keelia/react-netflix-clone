@@ -2,6 +2,7 @@ import type { Movie, MovieListProps } from '../types';
 import MovieCard from './MovieCard';
 import { SignedIn } from '@clerk/clerk-react';
 import useInfiniteLoad from '@/lib/useInfiniteLoad';
+import usehPRorizontalScroll from '@/lib/useHorizontalScroll';
 
 const MovieList = ({
   movies,
@@ -12,9 +13,10 @@ const MovieList = ({
   const { containerRef, sentinelRef } = useInfiniteLoad(loadMore, {
     threshold: 0.1,
   });
+  usehPRorizontalScroll(containerRef);
   return (
     <ul
-      className="flex overflow-x-scroll overflow-y-visible space-x-4 px-4 relative 
+      className="flex overflow-x-scroll space-x-4 px-4 relative 
       no-scrollbar"
       aria-label="Movie List"
       ref={containerRef}

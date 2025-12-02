@@ -1,4 +1,11 @@
 #root {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+  header {
+    flex-basis: 64px;
+  }
+  main {
+    flex: 1;
+  }
 }
