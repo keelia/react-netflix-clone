@@ -9,3 +9,44 @@
     flex: 1;
   }
 }
+
+@keyframes move-in {
+  from {
+    transform: scaleX(0);
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleX(1);
+    transform: scaleY(1);
+  }
+}
+
+@keyframes move-out {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* ::view-transition-old(root) {
+  animation: 0.1s both move-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.1s both move-in;
+} */
+
+::view-transition-group(.scale-in) {
+  animation-fill-mode: both;
+}
+::view-transition-old(.scale-in) {
+  animation-name: move-out;
+  animation-timing-function: ease-in;
+}
+
+::view-transition-new(.scale-in) {
+  animation-name: move-in;
+  animation-timing-function: ease-out;
+}
